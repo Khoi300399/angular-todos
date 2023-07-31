@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css";
+@import "./assets/fonts/stylesheet.css";
+body {
+  background-color: #fee9f0;
+  font-size: 16px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*:not(i) {
+  font-family: "Roboto", sans-serif;
+}
