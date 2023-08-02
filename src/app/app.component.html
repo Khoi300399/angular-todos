@@ -1,36 +1,5 @@
-<div class="card">
-  <div class="card__header">
-    <img src="../assets/images/todo.png" />
-  </div>
-  <!-- <h2>hello!</h2> -->
-  <div class="card__body">
-    <div class="filter-btn" [class.open]="isOpen">
-      <a id="one" href="#"><i class="fa fa-check-circle"></i></a>
-      <a id="two" href="#"><i class="fa fa-sort-alpha-down"></i></a>
-      <a id="three" href="#"><i class="fa fa-sort-alpha-up"></i></a>
-      <a id="all" href="#"><i class="fa fa-clock"></i></a>
-      <span class="toggle-btn">
-        <i class="fa" [class.fa-times]="isOpen" [class.fa-filter]="!isOpen"></i>
-        <!-- <i class="fa fa-times"></i> -->
-      </span>
-    </div>
-    <div class="card__content">
-      <div class="card__title">
-        <h2>My Tasks</h2>
-        <p>{{ date | date : "mediumDate" }}</p>
-      </div>
-      <div class="card__add">
-        <input id="newTask" type="text" placeholder="Enter an activity..." />
-        <button id="addItem">
-          <i class="fa fa-plus"></i>
-        </button>
-      </div>
-      <div class="card__todo">
-        <!-- Uncompleted tasks -->
-        <ul class="todo" id="todo"></ul>
-        <!-- Completed tasks -->
-        <ul class="todo" id="completed"></ul>
-      </div>
-    </div>
-  </div>
-</div>
+<todo>
+  <todo-input></todo-input>
+  <todo-list></todo-list>
+  <todo-footer *ngIf="hasTodo$ | async"></todo-footer>
+</todo>

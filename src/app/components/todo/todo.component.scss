@@ -1,0 +1,168 @@
+.card {
+  margin: 50px auto;
+  background-color: #f5f8f9;
+  width: 400px;
+  box-shadow: 0 0 6px grey;
+  overflow: hidden;
+  line-height: 2rem;
+  letter-spacing: 1px;
+}
+
+.card__header {
+  height: 215px;
+  overflow: hidden;
+  position: relative;
+}
+
+.card__header img {
+  width: 100%;
+}
+
+.card__header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(71, 32, 84, 0.2);
+}
+
+.card__body {
+  position: relative;
+}
+
+.card__body::before {
+  content: "";
+  position: absolute;
+  top: -35px;
+  left: -50px;
+  background-color: #f5f8f9;
+  height: 100px;
+  width: 120%;
+  display: block;
+  transform: rotate(10deg);
+}
+
+.card__content {
+  position: relative;
+  padding: 0 20px;
+}
+
+.card__title {
+  h1 {
+    font-size: 20px;
+    font-weight: 700;
+  }
+  p {
+    font-size: 13px;
+    font-weight: normal;
+  }
+}
+
+/* Filler Button */
+.filter-btn {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  transition: all 0.4s ease-in-out 0s;
+}
+
+.filter-btn span i {
+  width: 40px;
+  height: 40px;
+  background: #fa396b;
+  display: block;
+  position: absolute;
+  right: 25px;
+  top: -30px;
+  text-align: center;
+  color: #fff;
+  line-height: 40px;
+  border-radius: 50%;
+  font-size: 1rem;
+  z-index: 999;
+}
+
+span.toggle-btn:hover {
+  cursor: pointer;
+}
+
+.filter-btn a {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  right: 25px;
+  display: block;
+  top: -30px;
+  color: #fff;
+  z-index: 99;
+  font-size: 1.2rem;
+  transition: all 0.4s cubic-bezier(0.68, 1, 0.265, 1);
+}
+
+.filter-btn:after {
+  height: 150px;
+  width: 150px;
+  content: "";
+  background-color: #fa396b;
+  position: absolute;
+  top: -86px;
+  right: -35px;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.filter-btn.open span.toggle-btn i {
+  background-color: #de3963;
+}
+
+.filter-btn .fa-times {
+  display: none;
+}
+
+.filter-btn .fa-filter {
+  display: block;
+}
+
+.filter-btn.open .fa-times {
+  display: block;
+}
+
+.filter-btn.open .fa-filter {
+  display: none;
+}
+
+.open:after {
+  transform: scale(1);
+}
+
+.filter-btn.open a:nth-child(1) {
+  transform: translate(9px, -48px);
+}
+
+.filter-btn.open a:nth-child(2) {
+  transform: translate(-42px, -26px);
+}
+
+.filter-btn.open a:nth-child(3) {
+  transform: translate(-39px, 29px);
+}
+
+.filter-btn.open a:nth-child(4) {
+  transform: translate(6px, 52px);
+}
+
+// ul.todo#todo:empty:after {
+//   content: "You have nothing to-do!";
+//   margin: 15px 0 0 0;
+// }
+
+// ul.todo#completed:empty:after {
+//   content: "You have yet to complete any tasks.";
+// }

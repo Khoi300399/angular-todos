@@ -1,0 +1,48 @@
+<div
+  class="todo-item"
+  (mouseover)="isHovered = true"
+  (mouseout)="isHovered = false"
+>
+  <div class="item-content">
+    <ng-container
+      *ngIf="isEditing; then editTmpl; else noEditTmpl"
+    ></ng-container>
+  </div>
+</div>
+<ng-template #editTmpl>
+  <form class="edit-form" #todoForm="ngForm" (ngSubmit)="onSubmit(todoForm)">
+    <input
+      class="edit-input"
+      autofocus
+      type="text"
+      [(ngModel)]="todo.content"
+      #todoIp="ngModel"
+      name="todo"
+      required
+    />
+  </form>
+</ng-template>
+<ng-template #noEditTmpl>
+  <div class="left">
+    <input id="selected" type="checkbox" [checked]="todo.isCompleted" hidden />
+    <label (click)="onChangeStatus()" class="icon-check"></label>
+    <p class="title" (click)="onChangeStatus()" [class.del]="todo.isCompleted">
+      {{ todo.content }}
+    </p>
+  </div>
+  <div class="right">
+    <span
+      [hidden]="todo.isCompleted"
+      [class.show]="isHovered"
+      class="buttons edit"
+      (click)="isEditing = !isEditing"
+      ><i class="fa-solid fa-pencil"></i
+    ></span>
+    <span
+      [class.show]="isHovered"
+      class="buttons remove"
+      (click)="onDeleteTodo()"
+      ><i class="fas fa-trash-alt"></i
+    ></span>
+  </div>
+</ng-template>

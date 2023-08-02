@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class LocalStorageService {
-  constructor(public storage: Storage = window.localStorage) {}
+  private storage: Storage = window.localStorage;
 
   set(key: string, value: string): void {
     if (!value) {
@@ -28,9 +28,9 @@ export class LocalStorageService {
     return JSON.parse(this.storage[key]) || null;
   }
 
-  getValue<T>(key: string): T | null {
+  getValue<T>(key: string): T {
     const obj = JSON.parse(this.storage[key] || null);
-    return <T>obj || null;
+    return <T>obj;
   }
 
   remove(key: string): void {

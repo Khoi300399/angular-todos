@@ -1,0 +1,18 @@
+<div class="card__todo">
+  <ng-container *ngIf="hasTodo$ | async; then hasTodo; else nothing">
+  </ng-container>
+</div>
+
+<ng-template #hasTodo>
+  <todo-item
+    (delete)="onDeleteTodo($event)"
+    (changeStatus)="onChangeStatus($event)"
+    (changeContent)="onChangeContent($event)"
+    *ngFor="let todo of todos$ | async"
+    [todo]="todo"
+  ></todo-item>
+</ng-template>
+
+<ng-template #nothing
+  ><em class="nothing">You have nothing to-do!</em></ng-template
+>

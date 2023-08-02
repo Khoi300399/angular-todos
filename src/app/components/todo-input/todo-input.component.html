@@ -1,0 +1,15 @@
+<form class="card__add" #todosForm="ngForm" (ngSubmit)="onSubmit(todosForm)">
+  <input
+    id="newTask"
+    type="text"
+    ngModel
+    name="todo"
+    placeholder="Enter an activity..."
+    required
+    #todo="ngModel"
+  />
+
+  <button type="submit" id="addItem" [disabled]="todo.errors">
+    <i class="fa fa-plus"></i>
+  </button>
+</form>
